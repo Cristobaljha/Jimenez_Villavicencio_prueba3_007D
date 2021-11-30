@@ -1,0 +1,42 @@
+.registrase{
+    width: auto;
+    height: auto;
+}
+
+.texto{
+    color: blanchedalmond;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    font-size: 15px;
+}
+
+
+.borde{
+    padding-bottom: 0;
+    padding-top: 0;
+ }
+
+ .nombre{
+     color: darkgreen;
+     font-family: 'Times New Roman', Times, serif;
+ }
+
+ /*.foto{
+     width: 1000px;
+     height: 1000px;
+     align-items: center;
+    justify-content: center;
+     
+ }*/
+
+
+ .contenedor
+{
+    max-width: 800px;/*se puso max para que no haiga escroll*/
+    margin-top: 0; /* deja un espacio hacia arriva*/
+    margin-right: auto; /* deja espacio a la derecha*/
+    margin-bottom: 0; /* deja un espacio hacia abajo*/
+    margin-left: auto; /*deja espacio a la izquierda*/
+    border-radius: 6px;
+}
+ 

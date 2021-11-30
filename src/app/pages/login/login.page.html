@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>login</ion-title>
+    <ion-avatar class="ion-padding" slot="end">
+      <ion-img src="/assets/iniciosesion.png" style="height: 45px; width: 45px;" ></ion-img>
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content color="dark">
+
+  
+  <br>
+  <br>
+
+  <ion-card class="contenedor ">
+    <ion-img src="/assets/imagencine.jpg" class="imgcine"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioLogin">
+        <ion-item>
+          <ion-label position="floating">nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+      </form>
+      <br>
+      <ion-button (click)="ingresar()">
+        Ingresar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+<ion-footer>
+ 
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/autenticarse']">Autenticarse</ion-button>
+    </ion-buttons>
+    <br>
+    
+  </ion-toolbar>
+
+    
+</ion-footer>
+

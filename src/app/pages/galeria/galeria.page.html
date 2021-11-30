@@ -1,0 +1,126 @@
+
+
+
+<ion-header >
+  <ion-toolbar color="danger" >
+    <ion-buttons slot="start" > 
+      <ion-back-button defaultHref ="/"  text=" " color="light"  mode="ios"> 
+        
+      </ion-back-button>
+    </ion-buttons>
+
+      <ion-avatar slot="end" class="ion-padding">
+        <ion-img src="/assets/galeriaimg.jpg" style="height: 45px; width: 45px;" ></ion-img>
+      </ion-avatar>
+    
+    <ion-title >galeria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="dark">
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
+                  *ngFor ="let pelicula of peliculas; let i= index"><!--el index es la posicion  -->
+                  <ion-card  color="dark">
+                    <ion-card-header>
+                      <ion-card-subtitle>
+                          <!--<span class="text">{{i + 1 }}</span> -->
+                          <span class="pelicula-name">{{pelicula.release_date}} </span><!-- span class="noticia-name">{{noticia.source.name}} (se trabajo en clases)-->
+                      </ion-card-subtitle>
+                      <ion-card-title>{{pelicula.title}}</ion-card-title>
+                    </ion-card-header> 
+                    
+                 <!--  <ion-img  *ngIf="noticia.poster_path"
+                        [src]="noticia.poster_path"></ion-img>  -->
+
+                        <ion-img  *ngIf="pelicula.poster_path"
+                        [src]="'https://image.tmdb.org/t/p/w500/'+ pelicula.poster_path"></ion-img>    
+                        
+                        <ion-card-content>
+                          <p class="pelicula-description">
+                            {{pelicula.overview}}
+                          </p>
+          
+                        </ion-card-content> 
+                            
+                    </ion-card>
+                </ion-col>  
+              </ion-row>
+            </ion-grid> 
+
+
+  <ion-item color="danger" class="borde">
+    <ion-label class="texto">Categoria</ion-label>
+    <ion-select interface="popover"  >
+      <ion-select-option value="cficcion"  class="texto">Ciencia Ficción</ion-select-option>
+      <ion-select-option value="comedia"  class="texto">Comedia</ion-select-option>
+      <ion-select-option value="terror"  class="texto">Terror</ion-select-option>
+      <ion-select-option value="accion"  class="texto">Acción</ion-select-option>
+      <ion-select-option value="animes"  class="texto">Animes</ion-select-option>
+      <ion-select-option value="drama"  class="texto">Drama</ion-select-option>
+      <ion-select-option value="romántico"  class="texto">Romantico</ion-select-option>
+    </ion-select>
+  </ion-item>
+    <br><br>
+  <ion-button shape="round" color="danger" href="#"  class="texto">Películas Full HD</ion-button>
+
+
+
+  <ion-footer  class="borde">
+
+        
+    <ion-list class="borde">
+      <ion-item color="dark " >
+        <ion-label class="texto"> Politicas de privacidad</ion-label>
+      </ion-item >
+      <ion-item color="dark">
+        <ion-label class="texto"> Aviso legal</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Politicas de cookies</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Más información de FilmWorld+</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Correo:FilmWorld+@gmial.com</ion-label>
+      </ion-item>
+
+      
+
+      
+      
+    </ion-list>
+  
+  </ion-footer>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding" >
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+    
+
+
+    <ion-fab-list side="start" >
+      <ion-fab-button color="facebook" href="#"><ion-icon name="logo-facebook" color="danger"></ion-icon></ion-fab-button>
+      <ion-fab-button color="twitter" href="#"><ion-icon name="logo-twitter" color="danger"></ion-icon></ion-fab-button>
+      <ion-fab-button color="youtube" href="#"><ion-icon name="logo-youtube" color="danger"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+
+
+
+    
+
+
+
+  </ion-fab>
+</ion-content>

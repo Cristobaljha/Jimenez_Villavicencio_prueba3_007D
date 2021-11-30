@@ -1,0 +1,172 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" > 
+      <ion-back-button defaultHref ="/"   text=" "color="light" mode="ios"> 
+        
+      </ion-back-button>
+    </ion-buttons>
+
+    
+      <ion-avatar class="ion-padding" slot="end">
+        <ion-img src="/assets/avatarsugerenia.png" style="height: 45px; width: 45px;" ></ion-img>
+      </ion-avatar>
+    
+
+    <ion-title>Sugerencias y reclamos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+  
+  
+
+  <br>
+  <br>
+  <br>
+
+  <ion-card class="contenedor">
+    <ion-img src="/assets/sugerencias.jpg" ></ion-img>
+    <ion-card-content>
+
+            <form #formulario="ngForm" (ngSubmit) ="onSubmit()" >
+
+              <ion-item>
+                <ion-label position="fixed" class="nombre">Nombres:</ion-label>
+                <ion-input clearInput value=" " name="nombres" 
+                [(ngModel)]= "newDato.nombres" required placeholder="nombres"  ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="fixed">Apellidos</ion-label>
+                <ion-input clearInput value=" " name="apellidos"
+                [(ngModel)]= "newDato.apellidos" required placeholder="apellidos" ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="fixed">Teléfono</ion-label>
+                <ion-input type="number" value="telefono" name="telefono" clearInput value=" " 
+                [(ngModel)]= "newDato.telefono" required placeholder="912345678" ></ion-input>
+              </ion-item>
+              
+
+
+              <ion-item>
+                <ion-label position="fixed">Email: </ion-label>
+                <ion-input type="email" placeholder="abcdefgh@gmail.com" clearInput value=" " 
+                          name="email" [(ngModel)]= "newDato.correo"
+                          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                          required >
+                </ion-input>
+              </ion-item>
+
+
+              <ion-item>
+                <ion-label position="fixed">Comentario </ion-label>
+                <ion-input  placeholder="Sugerencia o reclamo" clearInput value=" " 
+                          name="password" [(ngModel)]= "newDato.comentario"
+                          required > <!--required es obligatorio-->
+                </ion-input>
+              </ion-item>
+
+              <ion-button (click)="addDatos() " expand="full" color="danger">
+                Agregar datos
+              </ion-button>
+
+             
+
+
+            </form>
+
+    </ion-card-content>
+
+  </ion-card>
+  <br>
+  <br>
+
+  <ion-list #myList class="contenedor">
+    <ion-list-header>
+      <ion-label>Mis Datos</ion-label>
+    </ion-list-header>
+
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let dato of datos">
+        <ion-item>
+          <ion-label text-wrap> 
+            <h3>{{dato.nombres}}</h3>
+            <ion-text >
+              <p>{{dato.apellidos}}</p>
+            </ion-text>
+              <h3>{{dato.telefono}} </h3>
+              <h3>{{dato.correo}}</h3>
+              <h3>{{dato.comentario}}</h3>
+            <p>{{dato.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="secondary" (click)="updateDatos(dato)">Actualizar</ion-item-option>
+       <ion-item-option color="danger" (click)="deleteDatos(dato)">Eliminar</ion-item-option> 
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+  <br>
+
+  <ion-footer  class="borde">
+
+        
+    <ion-list class="borde">
+      <ion-item color="dark " >
+        <ion-label class="texto"> Politicas de privacidad</ion-label>
+      </ion-item >
+      <ion-item color="dark">
+        <ion-label class="texto"> Aviso legal</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Politicas de cookies</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Más información de FilmWorld+</ion-label>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label class="texto">Correo:FilmWorld+@gmial.com</ion-label>
+      </ion-item>
+
+      
+
+      
+      
+    </ion-list>
+  
+  </ion-footer>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-padding" >
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+    
+
+
+    <ion-fab-list side="start" >
+      <ion-fab-button color="facebook" href="#"><ion-icon name="logo-facebook" color="danger"></ion-icon></ion-fab-button>
+      <ion-fab-button color="twitter" href="#"><ion-icon name="logo-twitter" color="danger"></ion-icon></ion-fab-button>
+      <ion-fab-button color="youtube" href="#"><ion-icon name="logo-youtube" color="danger"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+
+
+
+    
+
+
+
+  </ion-fab>
+  
+
+</ion-content>
